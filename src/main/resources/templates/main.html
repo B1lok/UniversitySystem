@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/mainPage.css" th:href="@{/css/mainPage.css}" />
+    <title>Institutes</title>
+</head>
+<body>
+
+
+<div class="institutes-list" th:if="${institutes}">
+    <div class="institute" th:each="institute: ${institutes}">
+
+    <span>
+        <h1 th:text="${institute}"></h1>
+        <a class="institute-link" th:href="@{/institutes/{name}(name=${institute.getName()})}">Перейти на сторінку інституту</a>
+    </span>
+    </div>
+</div>
+<div class="add-institute-form">
+    <h1>Додати Інститут</h1>
+<form method="POST" action="/institutes">
+    <label for="text-input">Введіть назву вашого інституту:</label>
+    <input type="text" id="text-input" name="name" required>
+
+    <input type="submit" value="Submit">
+</form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/studentPage.css" th:href="@{/css/studentPage.css}" />
+    <title>Students</title>
+</head>
+<body>
+
+<div th:each="student : ${students}">
+    <h1 th:text="${student}"></h1>
+</div>
+<a th:href="@{/institutes}">Перейти на сторінку інституту</a>
+
+
+</body>
+</html>

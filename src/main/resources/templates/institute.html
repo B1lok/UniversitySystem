@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/institutePage.css" th:href="@{/css/institutePage.css}" />
+    <title th:if="${institute}" th:text="${institute.getName()}"></title>
+</head>
+<body>
+<header>
+<h1 class="name" th:if="${institute}" th:text="${institute}"></h1>
+</header>
+
+<div class="students" th:if="${institute}">
+    <h1 th:text="'Number of students at the university - ' + ${institute.getNumOfStudents()}"></h1>
+</div>
+
+<div th:if="${institute}" th:each="faculty: ${faculties}" class="faculty">
+
+    <span>
+        <h1 th:text="${faculty}"></h1>
+        <a th:href="@{/institutes/{name}/{facultyName}(name=${institute.getName()}, facultyName=${faculty.getTitle()})}">Перейти на сторінку факультету</a>
+
+    </span>
+</div>
+
+<div>
+    <h1 class="addForm">Додати Факультет</h1>
+    <form method="POST" action="/institutes/{name}">
+        <input type="hidden" name="institute" th:value="${institute}" />
+
+        <label for="text-input">Введіть назву вашого факультету:</label>
+        <input type="text" id="text-input" name="title" required>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+    <div>
+      <form method="post" action="/institutes/{name}/students">
+          <label for="grade">Grade:</label>
+          <input type="number" id="grade" name="grade" required>
+          <button class="submitBtn" type="submit">Get students</button>
+      </form>
+    </div>
+
+    <div>
+        <form method="post" action="/institutes/{name}/largest-faculty">
+            <button class="submitBtn" type="submit">Get largest faculty</button>
+        </form>
+
+
+    </div>
+
+    <div th:if="${biggestFaculties}">
+        <h1>Faculty with the most students:</h1>
+        <ul>
+            <li th:each="faculty : ${biggestFaculties}" th:text="'Faculty name: ' + ${faculty.getTitle()}+ ' Number of students ' + ${faculty.getNumOfStudents()}"></li>
+        </ul>
+
+    </div>
+    <a class="backBtn" href="/institutes">Back to main</a>
+
+</body>
+</html>

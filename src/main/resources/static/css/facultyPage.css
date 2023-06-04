@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.add-student {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.add-student h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.add-student label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.add-student input[type="text"],
+.add-student input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.add-student input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.students-list {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.students-list h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: navy;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}

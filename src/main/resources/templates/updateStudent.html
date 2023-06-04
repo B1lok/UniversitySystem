@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/addStudent.css" th:href="@{/css/addStudent.css}" />
+    <title>Title</title>
+</head>
+<body>
+<h1>Оновити данні про студента</h1>
+<form class="student-form" action="/institutes/{name}/{facultyName}/{student}" method="post">
+
+    <div class="input-row">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${tempStudent.getName()}" required>
+    </div>
+    <div class="input-row">
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" name="surname"  th:value="${tempStudent.getSurname()}" required>
+    </div>
+        <div class="input-row">
+    <label for="gradeBookNumber">Grade Book Number:</label>
+    <input type="number" id="gradeBookNumber" name="gradeBookNumber" th:value="${tempStudent.getGradeBookNumber()}" required>
+        </div>
+            <div class="input-row">
+    <label for="averageGrade">Average Grade:</label>
+    <input type="number" id="averageGrade" name="averageGrade" th:value="${tempStudent.getAverageGrade()}"  required>
+            </div>
+    <div class="submit-row">
+    <input type="submit" value="Submit">
+    </div>
+</form>
+<h1 th:if="${updateWarning}" th:text="${updateWarning}"></h1>
+
+
+
+
+</body>
+</html>

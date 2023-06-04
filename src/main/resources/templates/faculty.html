@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/facultyPage.css" th:href="@{/css/facultyPage.css}" />
+    <title th:text="${faculty.getTitle()}"></title>
+</head>
+<body>
+
+<header>
+    <h1 th:text="${faculty.getTitle()}"></h1>
+</header>
+
+
+
+
+    <div class="students-list" th:if="${students}">
+        <div th:each="student: ${students}" >
+
+       <a th:text="${student}" th:href="@{/institutes/{institute}/{facultyName}/{student}(facultyName=${faculty.getTitle()},institute=${institute.getName()}, student=${student.getValue().getName()})}"></a>
+
+        </div>
+    </div>
+    <div>
+
+</div>
+<a class="btn" th:href="@{/institutes/{name}/{facultyName}/addStudent}">Add new Student</a>
+<a class="btn" th:href="@{/institutes}">Перейти на сторінку інституту</a>
+
+</body>
+</html>
